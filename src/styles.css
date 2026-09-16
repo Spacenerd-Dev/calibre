@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #09090b;
+  --color-surface: #121214;
+  --color-elevated: #1a1a1f;
+  --color-key: #232329;
+  --color-key-fn: #19191e;
+  --color-key-op: #2c2c34;
+  --color-fg: #f4f4f5;
+  --color-muted: #8b8b94;
+  --color-faint: #5c5c66;
+  --color-accent: #d8dce4;
+  --color-accent-fg: #0c0c0e;
+  --color-danger: #e88989;
+  --color-border: #ffffff14;
+  --color-ring: #d8dce4;
+
+  --font-sans: "Outfit", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "SF Mono", ui-monospace, monospace;
+
+  --radius-card: 1.75rem;
+  --radius-panel: 1rem;
+  --radius-key: 1rem;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 0 0 1px #ffffff14, 0 24px 48px -24px #00000099;
+  --shadow-key: 0 0 0 1px #ffffff0f, 0 1px 0 0 #ffffff0d inset;
+  --shadow-key-eq: 0 0 0 1px #ffffff22, 0 1px 0 0 #ffffff33 inset;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 100dvh;
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .app-wash {
+    background-image: radial-gradient(120% 80% at 50% 0%, var(--color-elevated) 0%, var(--color-bg) 55%);
+  }
+
+  .tape-edge {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0 14px,
+      var(--color-border) 14px 15px
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
